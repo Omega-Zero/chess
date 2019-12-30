@@ -9,21 +9,29 @@ public class chessBoard {
 
 		boolean initialArray[][] = new boolean[9][9];
 		
+		
+		
 		generateBoard(initialArray, 9, 9);
 	
 	}
 
-	
-
-	
-	
 	public static void generateBoard(boolean[][] array, int COLUMNS, int ROWS) {
 
 		StdDraw.clear();
 		StdDraw.enableDoubleBuffering();
 
+		//cycle through every cell on board
 		for (int column = 0; column < COLUMNS; column++) {
 			for (int row = 0; row < ROWS; row++) {
+				
+				//assigns true to array if row and column are both even or both odd 
+				if((isOdd(column) && isOdd(row))   ||    (!isOdd(column) && !isOdd(row))) {
+					array[column][row] = true;	
+				}
+				
+				
+				
+				//Draws black and white squares based off array values
 				double xCoord = ((double) column * (1.0/COLUMNS)) + (0.5/COLUMNS);
 				double yCoord = ((double) row * (1.0/ROWS)) + (0.5/ROWS);
 				if (array[column][row] == true) {
@@ -40,7 +48,21 @@ public class chessBoard {
 	}// END generateBoard()
 	
 	
-}
+	
+	//returns true if number is odd
+	public static boolean isOdd(int num) {
+		
+		if(num % 2 == 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}//end isOdd()
+	
+
+
+
+}//end chessBoard
 
 	
 	
