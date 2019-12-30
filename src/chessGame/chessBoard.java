@@ -11,7 +11,7 @@ public class chessBoard {
 		
 		
 		
-		generateBoard(initialArray, 9, 9);
+		generateBoard(initialArray, 8, 8);
 	
 	}
 
