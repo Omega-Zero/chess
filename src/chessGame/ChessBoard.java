@@ -7,14 +7,15 @@ public class ChessBoard {
 
 	public static void main(String[] args) {
 
-		boolean initialArray[][] = new boolean[9][9];
-		
-		
+		boolean initialArray[][] = new boolean[8][8];
 		
 		generateBoard(initialArray, 8, 8);
+		
+
 	
 	}
 
+	
 	public static void generateBoard(boolean[][] array, int COLUMNS, int ROWS) {
 
 		StdDraw.clear();
@@ -28,7 +29,6 @@ public class ChessBoard {
 				if((isOdd(column) && isOdd(row))   ||    (!isOdd(column) && !isOdd(row))) {
 					array[column][row] = true;	
 				}
-				
 				
 				
 				//Draws black and white squares based off array values
@@ -48,7 +48,6 @@ public class ChessBoard {
 	}// END generateBoard()
 	
 	
-	
 	//returns true if number is odd
 	public static boolean isOdd(int num) {
 		
@@ -59,7 +58,15 @@ public class ChessBoard {
 		}
 	}//end isOdd()
 	
-
+	
+	
+	
+	
+	public void generatePieces(String [][] board) {
+		
+		
+		
+	}//End generatePieces
 
 
 }//end ChessBoard
