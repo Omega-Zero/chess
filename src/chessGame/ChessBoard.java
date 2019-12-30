@@ -3,7 +3,7 @@
 
 package chessGame;
 
-public class chessBoard {
+public class ChessBoard {
 
 	public static void main(String[] args) {
 
@@ -62,7 +62,7 @@ public class chessBoard {
 
 
 
-}//end chessBoard
+}//end ChessBoard
 
 	
 	
