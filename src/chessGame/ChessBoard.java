@@ -7,44 +7,52 @@ public class ChessBoard {
 
 	public static void main(String[] args) {
 
-		boolean initialArray[][] = new boolean[8][8];
+		generateBoard();
 		
-		generateBoard(initialArray, 8, 8);
-		
-
 	
 	}
 
 	
-	public static void generateBoard(boolean[][] array, int COLUMNS, int ROWS) {
+	public static void generateBoard() {
 
 		StdDraw.clear();
 		StdDraw.enableDoubleBuffering();
 
-		//cycle through every cell on board
-		for (int column = 0; column < COLUMNS; column++) {
-			for (int row = 0; row < ROWS; row++) {
+		Square[][] boardArray = new Square[8][8];
+		
+		
+		
+		//cycle through every cell on board 
+		for (int column = 0; column <= 7; column++) {
+			for (int row = 0; row <= 7; row++) {
 				
-				//assigns true to array if row and column are both even or both odd 
-				if((isOdd(column) && isOdd(row))   ||    (!isOdd(column) && !isOdd(row))) {
-					array[column][row] = true;	
+				//assigns square object to each square and assigns it white/black
+				if(isWhiteSpace(row, column)) {
+					boardArray[row][column] = new Square(row, column, true, null);
+				}else{
+					boardArray[row][column] = new Square(row, column, false, null);
 				}
 				
 				
-				//Draws black and white squares based off array values
-				double xCoord = ((double) column * (1.0/COLUMNS)) + (0.5/COLUMNS);
-				double yCoord = ((double) row * (1.0/ROWS)) + (0.5/ROWS);
-				if (array[column][row] == true) {
-					StdDraw.filledSquare(xCoord, yCoord, 0.5/ROWS);
-				} else {
-					StdDraw.square(xCoord, yCoord, 0.5/ROWS);
-				}
+				
+				//Draws black, white squares and pieces based off obj array values
+				double xCoord = ((double) column * (1.0/8)) + (0.5/8);
+				double yCoord = ((double) row * (1.0/8)) + (0.5/8);
+				//if no piece
+				if (boardArray[row][column].getPiece() == null) {
+					//if white
+					if (boardArray[row][column].getSquareColor()) {
+						StdDraw.square(xCoord, yCoord, 0.5/8);
+					}else{
+						StdDraw.filledSquare(xCoord, yCoord, 0.5/8);
+					}
 
+				}
+		
 			}
+
 		}
-
 		StdDraw.show();
-
 	}// END generateBoard()
 	
 	
@@ -59,15 +67,18 @@ public class ChessBoard {
 	}//end isOdd()
 	
 	
-	
-	
-	
-	public void generatePieces(String [][] board) {
-		
-		
-		
-	}//End generatePieces
+	public static boolean isWhiteSpace(int row, int column) {
 
+		boolean result = true;
+		
+		if((isOdd(column) && isOdd(row))   ||    (!isOdd(column) && !isOdd(row))) {
+			result = false;
+		}
+		return result;
+	}
+	
+	
+	
 
 }//end ChessBoard
 

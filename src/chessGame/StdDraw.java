@@ -1,6 +1,6 @@
 package chessGame;
 //This class can be found at https://introcs.cs.princeton.edu/java/stdlib/StdDraw.java.html
-//This is a modified version to fit my GoL needs
+//This is a modified version to fit my chess game needs
 /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
@@ -310,7 +310,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            // closes all windows
         // frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);      // closes only current window
-        frame.setTitle("Game of Life");
+        frame.setTitle("Chess Game");
         frame.setJMenuBar(createMenuBar());
         frame.pack();
         frame.requestFocusInWindow();
