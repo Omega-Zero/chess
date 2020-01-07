@@ -40,7 +40,7 @@ public abstract class ChessPiece {
 	public abstract boolean canMove(Object[][] arrayBoard, Square startSquare, Square endSquare);
 	
 		
-	public abstract void setPicture(boolean white, int row, int column);
+	public abstract void setPicture(boolean whiteSquare, boolean whitePiece, double xCoord, double yCoord);
 	
 
 	public static void main(String[] args) {

@@ -14,7 +14,7 @@ public class Square {
     } 
   
     public void setSquareColor(boolean white) {
-    	this.squareColor = true;
+    	this.squareColor = white;
     }
     
     public boolean getSquareColor() {

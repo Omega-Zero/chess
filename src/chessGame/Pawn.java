@@ -15,18 +15,18 @@ public class Pawn extends ChessPiece {
 		return false;
 	}
 	
-	public void setPicture(boolean white, int row, int column) {
+	public void setPicture(boolean whiteSquare, boolean whitePiece, double xCoord, double yCoord) {
 		
 		
 		
 		//If endSquare is white, pic1, else pic 2
-		if (white == true){
+		if (whiteSquare == true){
 		
-			StdDraw.picture(column, row, "pawn.jpg");
+			StdDraw.picture(xCoord, yCoord, "pawn.jpg", 0.125, 0.125);
 			
 		}else {
 			
-			StdDraw.picture(column, row, "pawn.jpg");
+			StdDraw.picture(xCoord, yCoord, "pawn.jpg", 0.125, 0.125);
 			
 		}
 		

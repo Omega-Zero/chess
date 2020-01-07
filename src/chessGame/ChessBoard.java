@@ -26,27 +26,39 @@ public class ChessBoard {
 		for (int column = 0; column <= 7; column++) {
 			for (int row = 0; row <= 7; row++) {
 				
-				//assigns square object to each square and assigns it white/black
+				Square currentSquare = boardArray[row][column];
+				
+				//assigns square object to each square and assigns it white/black (draw null squares)
 				if(isWhiteSpace(row, column)) {
-					boardArray[row][column] = new Square(row, column, true, null);
+					currentSquare = new Square(row, column, true, new Pawn(true));
 				}else{
-					boardArray[row][column] = new Square(row, column, false, null);
+					currentSquare = new Square(row, column, false, null);
 				}
-				
-				
-				
+					
 				//Draws black, white squares and pieces based off obj array values
 				double xCoord = ((double) column * (1.0/8)) + (0.5/8);
 				double yCoord = ((double) row * (1.0/8)) + (0.5/8);
+				
 				//if no piece
-				if (boardArray[row][column].getPiece() == null) {
+				if (currentSquare.getPiece() == null) {
 					//if white
-					if (boardArray[row][column].getSquareColor()) {
+					if (currentSquare.getSquareColor()) {
 						StdDraw.square(xCoord, yCoord, 0.5/8);
 					}else{
 						StdDraw.filledSquare(xCoord, yCoord, 0.5/8);
 					}
-
+					
+				//there's a piece
+				}else{
+					
+					//if whiteSquare
+					if(currentSquare.getSquareColor()) {
+						//set picture according to piece color and square color
+						currentSquare.getPiece().setPicture(true, true, xCoord, yCoord);
+					}else {
+						
+					}
+					
 				}
 		
 			}
@@ -75,7 +87,7 @@ public class ChessBoard {
 			result = false;
 		}
 		return result;
-	}
+	}//end isWhiteSpace()
 	
 	
 	
