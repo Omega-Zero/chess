@@ -5,42 +5,39 @@ public abstract class ChessPiece {
 	//Instance Variables
 	private boolean alive = true;
 	private boolean white = true;
-	private String name = "" ;
+	ChessPiece objpiece;
 	
 	
-	//Constructor Declaration of Class
-	public ChessPiece (boolean color) {
-		
-		this.setWhite(color);	
-		
+	//Constructor 
+	public ChessPiece (boolean white) {
+		this.setWhite(white);
 	}
 	
-	public String getName() {
-		return this.name;
-	}
 	
+	private void setWhite(boolean white) {
+		this.white=white;
+	}
+
+
 	public boolean isAlive() {
-		return this.alive == true;
+		return this.alive;
 	}
 	
 	//setMethods()
 	public void setDead(boolean setDead) {
-		this.alive = false;
-	}
-	
-	public void setName(String newName) {
-		this.name = newName;
-	}
-	
-	public void setWhite(boolean white) {
-		this.white = true;
+		alive = false;
 	}
 	
 	
+	public boolean isWhitePiece() {
+		return this.white == true;
+	}
+	
+
 	public abstract boolean canMove(Object[][] arrayBoard, Square startSquare, Square endSquare);
 	
 		
-	public abstract void setPicture(boolean whiteSquare, boolean whitePiece, double xCoord, double yCoord);
+	public abstract String getPicture(boolean whiteSquare, boolean whitePiece);
 	
 
 	public static void main(String[] args) {

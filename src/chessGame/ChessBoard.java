@@ -6,68 +6,62 @@ package chessGame;
 public class ChessBoard {
 
 	public static void main(String[] args) {
-
-		generateBoard();
 		
-	
+		generateBoard(newGame());
 	}
 
 	
-	public static void generateBoard() {
-
-		StdDraw.clear();
+	public static void generateBoard(Square[][] board) {
+ 		StdDraw.clear();
 		StdDraw.enableDoubleBuffering();
-
-		Square[][] boardArray = new Square[8][8];
 		
-		
-		
-		//cycle through every cell on board 
-		for (int column = 0; column <= 7; column++) {
-			for (int row = 0; row <= 7; row++) {
-				
-				Square currentSquare = boardArray[row][column];
-				
-				//assigns square object to each square and assigns it white/black (draw null squares)
-				if(isWhiteSpace(row, column)) {
-					currentSquare = new Square(row, column, true, new Pawn(true));
-				}else{
-					currentSquare = new Square(row, column, false, null);
-				}
-					
-				//Draws black, white squares and pieces based off obj array values
+		//cycle through every cell on board, calculate 
+		//its position on the screen and get the cell's picture
+		for (int column = 0; column < 8; column++) {
+			for (int row = 0; row < 8; row++) {
+				//calculates the *center* of each photo(piece) will go
 				double xCoord = ((double) column * (1.0/8)) + (0.5/8);
 				double yCoord = ((double) row * (1.0/8)) + (0.5/8);
-				
-				//if no piece
-				if (currentSquare.getPiece() == null) {
-					//if white
-					if (currentSquare.getSquareColor()) {
-						StdDraw.square(xCoord, yCoord, 0.5/8);
-					}else{
-						StdDraw.filledSquare(xCoord, yCoord, 0.5/8);
-					}
-					
-				//there's a piece
-				}else{
-					
-					//if whiteSquare
-					if(currentSquare.getSquareColor()) {
-						//set picture according to piece color and square color
-						currentSquare.getPiece().setPicture(true, true, xCoord, yCoord);
-					}else {
-						
-					}
-					
-				}
-		
+				//draw the picture of whatever obj in cell
+				StdDraw.picture(xCoord, yCoord, board[row][column].setPicture(), .125, .125);
 			}
-
 		}
 		StdDraw.show();
 	}// END generateBoard()
 	
 	
+	
+	public static Square[][] newGame(){
+		
+		Square[][] newGameBoard = new Square[8][8];
+		
+		//init all squares
+		for (int row = 0; row < 8; row++) {
+			for (int column = 0; column < 8; column++) {
+				//if its a white space
+				if(isWhiteSpace(row, column)) {	
+					newGameBoard[row][column] = new Square(row, column, true);
+							}else{//is black space
+					newGameBoard[row][column] = new Square(row, column, false);
+				}
+			}
+		}
+		
+		//init pawns 
+		for (int column=0; column<8; column++) {
+			newGameBoard[6][column] = new Square(6, column, isWhiteSpace(6, column), new Pawn(false)); //black 
+			System.out.print(newGameBoard[6][column].getPiece().isWhitePiece());
+			newGameBoard[1][column] = new Square(1, column, isWhiteSpace(1, column), new Pawn(true)); //white
+			System.out.print(newGameBoard[1][column].getPiece().isWhitePiece());
+		}
+		
+		return newGameBoard;
+		
+	}//end newGame()
+
+	
+	
+
 	//returns true if number is odd
 	public static boolean isOdd(int num) {
 		
@@ -88,7 +82,6 @@ public class ChessBoard {
 		}
 		return result;
 	}//end isWhiteSpace()
-	
 	
 	
 
