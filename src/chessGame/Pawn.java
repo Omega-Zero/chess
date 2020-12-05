@@ -24,9 +24,13 @@ public class Pawn extends ChessPiece {
 			return true;
 	}
 	
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> branch 'master' of https://github.com/Omega-Zero/chess.git
 	public String getPicture(boolean whiteSquare, boolean whitePiece) {
 		
+<<<<<<< HEAD
 		//if square piece is on is white
 		if (whiteSquare){
 			//if white piece
@@ -37,6 +41,19 @@ public class Pawn extends ChessPiece {
 			}
 	
 		}else{//square is black
+=======
+		//if endSquare is white
+		if (whiteSquare){
+			//if white piece
+			if (whitePiece) {
+				return "wpawnWsq.jpeg";
+			}else{//black piece
+				return "bpawnBsq.jpeg";
+			}
+			
+		
+		}else{//end square is black
+>>>>>>> branch 'master' of https://github.com/Omega-Zero/chess.git
 			//if white piece
 			if (whitePiece) {
 				return "wpawnBsq.jpeg";

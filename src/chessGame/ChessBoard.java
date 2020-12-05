@@ -34,7 +34,7 @@ public class ChessBoard {
 	public static Square[][] newGame(){
 		
 		Square[][] newGameBoard = new Square[8][8];
-		
+
 		//init all squares
 		for (int row = 0; row < 8; row++) {
 			for (int column = 0; column < 8; column++) {
@@ -73,6 +73,102 @@ public class ChessBoard {
 		}
 		
 		return newGameBoard;
+	}//end newGame()
+
+	
+	
+
+	
+	public static Square[][] newGame(){
+		
+		Square[][] newGameBoard = new Square[8][8];
+		
+		//init all squares
+		for (int row = 0; row < 8; row++) {
+			for (int column = 0; column < 8; column++) {
+				//if its a white space
+				if(isWhiteSpace(row, column)) {	
+					newGameBoard[row][column] = new Square(row, column, true);
+							}else{//is black space
+					newGameBoard[row][column] = new Square(row, column, false);
+				}
+			}
+		}
+		
+		//init pawns 
+		for (int column=0; column<8; column++) {
+			newGameBoard[6][column] = new Square(6, column, isWhiteSpace(6, column), new Pawn(false)); //black 
+			System.out.print(newGameBoard[6][column].getPiece().isWhitePiece());
+			newGameBoard[1][column] = new Square(1, column, isWhiteSpace(1, column), new Pawn(true)); //white
+			System.out.print(newGameBoard[1][column].getPiece().isWhitePiece());
+		}
+		
+		return newGameBoard;
+		
+	}//end newGame()
+
+	
+	
+
+	
+	public static Square[][] newGame(){
+		
+		Square[][] newGameBoard = new Square[8][8];
+		
+		//init all squares
+		for (int row = 0; row < 8; row++) {
+			for (int column = 0; column < 8; column++) {
+				//if its a white space
+				if(isWhiteSpace(row, column)) {	
+					newGameBoard[row][column] = new Square(row, column, true);
+							}else{//is black space
+					newGameBoard[row][column] = new Square(row, column, false);
+				}
+			}
+		}
+		
+		//init pawns 
+		for (int column=0; column<8; column++) {
+			newGameBoard[6][column] = new Square(6, column, isWhiteSpace(6, column), new Pawn(false)); //black 
+			System.out.print(newGameBoard[6][column].getPiece().isWhitePiece());
+			newGameBoard[1][column] = new Square(1, column, isWhiteSpace(1, column), new Pawn(true)); //white
+			System.out.print(newGameBoard[1][column].getPiece().isWhitePiece());
+		}
+		
+		return newGameBoard;
+		
+	}//end newGame()
+
+	
+	
+
+	
+	public static Square[][] newGame(){
+		
+		Square[][] newGameBoard = new Square[8][8];
+		
+		//init all squares
+		for (int row = 0; row < 8; row++) {
+			for (int column = 0; column < 8; column++) {
+				//if its a white space
+				if(isWhiteSpace(row, column)) {	
+					newGameBoard[row][column] = new Square(row, column, true);
+							}else{//is black space
+					newGameBoard[row][column] = new Square(row, column, false);
+				}
+			}
+		}
+		
+		//init pawns 
+		for (int column=0; column<8; column++) {
+			newGameBoard[6][column] = new Square(6, column, isWhiteSpace(6, column), new Pawn(false)); //black 
+			System.out.print(newGameBoard[6][column].getPiece().isWhitePiece());
+			newGameBoard[1][column] = new Square(1, column, isWhiteSpace(1, column), new Pawn(true)); //white
+			System.out.print(newGameBoard[1][column].getPiece().isWhitePiece());
+		}
+		
+		return newGameBoard;
+		
 	}//end newGame()
 
 	
